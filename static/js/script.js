@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    //Tab Switching 
+    //Tab Switching
+
     $(".tab").on("click","li",function(){
        var x= $(this).text();
        x = x.toLowerCase();
@@ -20,6 +21,22 @@ $(document).ready(function() {
           timer = setTimeout(callback, ms);
         };
       })();
+      
+    
+     function chkPassword(name,pass){
+         delay(function(){
+            $.ajax({
+                method:"GET",
+                url : "/checkpassword/"+name+"/"+pass,
+                success: function(data){
+                    if(data.exists==false)
+                        $("#nowpass-err").text("Wrong Password");
+                    else
+                    $('#nowpass-err').text("");    
+               }
+            });
+         },1000);
+     }; 
 
     function chkName(uname) {
         
@@ -28,8 +45,9 @@ $(document).ready(function() {
                 method: "GET",
                 url: "/checkusername/"+uname,
                 success: function(data) {
-                  if(data.exists==true)
-                  $('#uname-err').text("Username already exists")
+                  console.log(data.exists);
+                    if(data.exists==true)
+                    $('#uname-err').text("Username already exists")
                 }
                 
             });
@@ -66,6 +84,33 @@ $(document).ready(function() {
         $('#uname-err').text("");
         chkName(uname);    
     });
+    $('#now_pass').on('keyup paste',function(){
+        var usr=$("#username").text();
+        var pass=$(this).val();
+        chkPassword(usr,pass);    
+    });
+
+    $('#chg_pass').on('keyup paste',function(){
+        if($(this).val().length<8)
+        {   //console.log($(this).val().length);
+            $('#newpass-err').text("Password must have minimum 8 characters");
+            //alert("kammi daww");
+        }   
+        else
+        $('#newpass-err').text("");
+        if($(this).val()==$('#now_pass').val())
+            { $('#newpass-err').text("Password is same as old ");  }
+        else
+        $('#newpass-err').text("");    
+    }); 
+    
+    $('#chg_conpass').on('keyup paste',function(){
+        if($(this).val()!=$('#chg_pass').val())
+        $('#newconpass-err').text("Passwords don't match");
+        else
+        $('#newconpass-err').text("");
+    });
+
     $('#reg_pass').on('keyup paste',function(){
         if($(this).val().length<8)
         $('#pass-err').text("Password must have minimum 8 characters");
@@ -86,4 +131,23 @@ $(document).ready(function() {
         $('#email-err').text("");
         chkMail(email); 
     });
-});    
+
+    
+
+ $('#changePass').on('click',function(){
+     $('#modalBox').css("display","block"); 
+ });   
+
+ $('.close').on('click',function(){
+     $('#modalBox').css("display","none");
+ });   
+
+
+ 
+});
+var modal = document.getElementById('modalBox');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

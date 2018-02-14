@@ -1,0 +1,11 @@
+{
+    "DB_HOST":"127.0.0.1",
+    "CONNECTION_LIMIT" : 100,
+    "DB_USER": "root",
+    "DB_PASSWORD": "",
+    "DATABASE": "test",
+    "TOKEN_KEY":"MySuperSecretKey",
+    "SERVICE":"Gmail",
+    "MAIL_ID":"anishbalasubramanie@gmail.com",
+    "MAIL_PASSWORD":"anish3102"
+}
