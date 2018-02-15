@@ -24,9 +24,9 @@ html
                     div.form-container
                         form(id="login-contents", method="post" action="/login")
                             input(type="text", placeholder="Username", name="username")
-                            p.error = (log_uname_err===undefined?'': log_uname_err)
+                            p.error= (log_uname_err===undefined?'': log_uname_err)
                             input(type="password", placeholder="Password", name="password")
-                            p.error = (log_pass_err===undefined?'': log_pass_err)                       
+                            p.error= (log_pass_err===undefined?'': log_pass_err)                       
                             button(type="submit") Login
                             p#log-err= (log_err===undefined?'': log_err)
                         form(id="register-contents", class="hidden", method="post" action="/register")
