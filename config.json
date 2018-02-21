@@ -1,5 +1,5 @@
 {
-    "DB_HOST":"127.0.0.1",
+    "DB_HOST":"",
     "CONNECTION_LIMIT" : 100,
     "DB_USER": "",
     "DB_PASSWORD": "",
@@ -8,4 +8,8 @@
     "SERVICE":"",
     "MAIL_ID":"",
     "MAIL_PASSWORD":""
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 36ff65a2e56156366e8aa70670fcffb698911320
