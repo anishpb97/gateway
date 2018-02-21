@@ -110,6 +110,7 @@ body
     width: 78%;
     font-size: 1em;
     margin-top:3%;
+    cursor: pointer;
 }
 .error{
     min-height:3vh;
@@ -134,26 +135,62 @@ body
     height: 5vh;
     margin-top: 2%;
 }
-.header a
-{
-    float: right;
-    text-decoration: none;
-    color:#fff;
-    margin: 2%;
-    font-size: 1.1em;
+.dashboardCanvas{
+    display: flex;
+    flex-direction: row;
 }
-.header a:hover{
-    color: #e74c3c;
+.dashboardMenu{
+    display: flex;
+    flex-direction: column; 
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    background-color: #31464b;
+    width: 20%;
+}
+
+.profileIcon{
+    padding-left: 40%;    
+}
+
+.profileIcon img{
+    border-radius: 50%;
+    width: 40%;
+}
+.userName{
+    
+    font-size: 2.5em;
+}
+.menuContent ul{
+    list-style: none;
+    margin-top: 25%;
+    
+}
+.menuItem{
+    padding: 10px;
+    width: 100%;
+    font-size: 1.2em;
+    box-sizing: border-box; 
+    cursor: pointer;
+}
+.activeOption{
+    background-color: #222;
+    border-left: 10px #e74c3c solid;
+}
+.menuItem a {
+    text-decoration: none;
+    color: #fff;
 }
 .footer{
     display: flex;
     background-color:#ccc;
-    height:10vh;
+    height:8vh;
     justify-content: center;
 }
 .content{
     min-height: 80vh;
-    background: #ddd;
+    width: 80%;
+    background-color: #ddd;
 
 }
 .footer p{
@@ -193,7 +230,7 @@ body
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0); 
-    background-color: rgba(148, 78, 78, 0.6);
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 
@@ -250,4 +287,9 @@ padding: 20px;
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+.footerText{
+    background-color: #000;
+    width: 100%;
+    text-align: center;
 }

@@ -150,4 +150,11 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+    $(".menuContent").on("click","li",function(){
+        var text = $(this).html();
+        var previous = document.getElementsByClassName("activeOption");
+        $(previous).removeClass("activeOption");
+        $(this).addClass("activeOption");
+        });
+      
 }

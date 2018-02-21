@@ -2,7 +2,7 @@ module.exports = function(app) {
 
    //Setup Controllers
     userController = require('./../controllers/user_controller.js');
-    dashboard = require('./../controllers/dashboard_Controller.js');
+    dashboard = require('./../controllers/dashboard_controller.js');
 
    //Set Routes
     app.route('/dashboard').get(userController.authenticate, dashboard.show);

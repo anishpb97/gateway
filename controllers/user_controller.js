@@ -42,7 +42,7 @@ exports.login=function(req,res){
                   if(same)
                   {
 
-                    res.cookie('AuthToken',jwt.sign({id:jwt_id ,username: result[0].username,name: result[0].name,}, configs.TOKEN_KEY), { maxAge: 1000*60*60*24*7, httpOnly: true })
+                    res.cookie('AuthToken',jwt.sign({id:jwt_id ,username: result[0].username,name: result[0].name}, configs.TOKEN_KEY), { maxAge: 1000*60*60*24*7, httpOnly: true })
                     res.redirect('/dashboard')
                   }
                   else
@@ -122,11 +122,8 @@ exports.register=function(req , res){
                       if(error){
                              console.log(error);
                          res.end("error");
-                      }else{
-                             console.log("Message sent: " + response.message);
-                         res.end("sent");
-                          }
-                 });
+                      }                 
+                    });
                   res.render('home',{message:'You are successfully registered!\nVerify your email'});
               }
                 
@@ -152,6 +149,7 @@ exports.register=function(req , res){
     }; 
 
 exports.authenticate=function(req,res, next){
+  
   if(req.user)
     return next()
   

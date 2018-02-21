@@ -37,5 +37,6 @@ var routes = require('./routes/app_router');
 routes(app);
 
 //Deploy
-app.listen(2010);
+app.listen(8010);
+console.log("Server started at 8010....\n");
 module.exports = app;

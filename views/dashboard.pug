@@ -6,24 +6,35 @@ head
         script(src="/js/jquery.min.js")
 body
     include header.pug
-    div.content
-        div.coverImg
-          img(src='img/pexels-cover.jpeg')
-        p#welcome='Welcome, ' + name
-        p#username='' + username 
-        p#email='Your mail: '+ email 
-        button#changePass Change Password
-        div#modalBox.modal 
-                div.modal-content
-                        span.close x
-                        div.modal-body
-                            center
-                                form(id="changeForm",method="POST",action="/changePassword")
-                                        input(id="now_pass",placeholder="Current Password",name="now_pass",type="password")
-                                        p.error#nowpass-err= (nowpass_err===undefined?'': nowpass_err)
-                                        input(id="chg_pass", type="password", placeholder="New Password", name="password")
-                                        p.error#newpass-err= (pass_err===undefined?'': pass_err)
-                                        input(id="chg_conpass",type="password", placeholder="Confrim Password", name="repassword")
-                                        p.error#newconpass-err= (conpass_err===undefined?'': conpass_err)
-                                        button(type="submit") Change Password
+    div.dashboardCanvas
+        div.dashboardMenu
+            div.profileIcon 
+              img(src="img/usr/default.jpg")  
+            div.userName=''+name
+            div.menuContent 
+                ul   
+                    li.activeOption.menuItem
+                        a(id="homeView") Write
+                    li.menuItem
+                        a(id="profileView") My Profile
+                    li.menuItem    
+                        a(id="changePass") Change Password
+                    li.menuItem
+                        a(href="/logout") Logout
+        
+        div.content
+             div#modalBox.modal 
+                    div.modal-content
+                            span.close x
+                            div.modal-body
+                                center
+                                    form(id="changeForm",method="POST",action="/changePassword")
+                                            input(id="now_pass",placeholder="Current Password",name="now_pass",type="password")
+                                            p.error#nowpass-err= (nowpass_err===undefined?'': nowpass_err)
+                                            input(id="chg_pass", type="password", placeholder="New Password", name="password")
+                                            p.error#newpass-err= (pass_err===undefined?'': pass_err)
+                                            input(id="chg_conpass",type="password", placeholder="Confrim Password", name="repassword")
+                                            p.error#newconpass-err= (conpass_err===undefined?'': conpass_err)
+                                            button(type="submit" disabled) Change Password
+    include footer.pug                                        
     script(src="/js/script.js")
